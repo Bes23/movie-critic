@@ -12,3 +12,19 @@ cards.forEach((card) => {
       : "Read full review";
   });
 });
+
+// auto-generate date
+
+const dateInput = document.querySelector("#review-date");
+
+const now = new Date();
+const formattedDate = now.toLocaleString("en-US", {
+  day: "2-digit",
+  month: "short",
+  year: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: false,
+});
+
+dateInput.value = formattedDate;
