@@ -7,4 +7,6 @@ export async function handleGet(res) {
   sendResponse(res, 200, "application/json", content);
 }
 
-
+export function handlePost(req, res) {
+  console.log("POST request received");
+}
