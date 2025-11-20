@@ -1,5 +1,6 @@
 import http from "node:http";
 import { serveStatic } from "./utils/serverStatic.js";
+import { sendResponse } from "./utils/sendResponse.js";
 
 const PORT = 8000;
 const __dirname = import.meta.dirname;
