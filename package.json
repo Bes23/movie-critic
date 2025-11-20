@@ -1,0 +1,25 @@
+{
+  "name": "movie-critic",
+  "version": "1.0.0",
+  "description": "a platform for sharin movie reviews",
+  "homepage": "https://github.com/Bes23/movie-critic#readme",
+  "bugs": {
+    "url": "https://github.com/Bes23/movie-critic/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bes23/movie-critic.git"
+  },
+  "license": "ISC",
+  "author": "Besiki",
+  "type": "module",
+  "main": "server.js",
+  "dev": "nodemon server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
