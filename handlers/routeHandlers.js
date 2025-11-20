@@ -7,4 +7,4 @@ export async function handleGet(res) {
   sendResponse(res, 200, "application/json", content);
 }
 
-// handlePosty
+
