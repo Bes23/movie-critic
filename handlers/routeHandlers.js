@@ -2,6 +2,7 @@ import { getData } from "../utils/getData.js";
 import { sendResponse } from "../utils/sendResponse.js";
 import { parseJSONBody } from "../utils/parseJSONBody.js";
 import { addNewReview } from "../utils/addNewReview.js";
+import { formatDate } from "../utils/formatDate.js";
 
 export async function handleGet(res) {
   const data = await getData();
@@ -15,8 +16,8 @@ export async function handlePost(req, res) {
     if (!parsedBody.author || !parsedBody.title || !parsedBody.text) {
       throw new Error("Missing required fields: author, title, text");
     }
-    
-    const reviewWithDate = { ...parsedBody, timeStamp: new Date().toLocaleString() }
+
+    const reviewWithDate = { ...parsedBody, timeStamp: formatDate() };
     await addNewReview(reviewWithDate);
     sendResponse(res, 201, "application/json", JSON.stringify(parsedBody));
   } catch (error) {
@@ -24,7 +25,7 @@ export async function handlePost(req, res) {
       res,
       400,
       "application/json",
-      JSON.stringify({ error: error })
+      JSON.stringify({ error: error.message })
     );
   }
 }
