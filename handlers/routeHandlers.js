@@ -12,6 +12,9 @@ export async function handleGet(res) {
 export async function handlePost(req, res) {
   try {
     const parsedBody = await parseJSONBody(req);
+    if (!parsedBody.author || !parsedBody.title || !parsedBody.text) {
+      throw new Error("Missing required fields: author, title, text");
+    }
     await addNewReview(parsedBody);
     sendResponse(res, 201, "application/json", JSON.stringify(parsedBody));
   } catch (error) {

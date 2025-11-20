@@ -7,7 +7,7 @@ export async function addNewReview(newReview) {
     const reviews = await getData();
     reviews.push(newReview);
     const pathJSON = path.join("data", "data.json");
-    await fs.writeFile(pathJSON, JSON.stringify(reviews), "utf8");
+    await fs.writeFile(pathJSON, JSON.stringify(reviews, null, 2), "utf8");
   } catch (error) {
     throw new Error(error);
   }
