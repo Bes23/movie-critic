@@ -15,7 +15,9 @@ export async function handlePost(req, res) {
     if (!parsedBody.author || !parsedBody.title || !parsedBody.text) {
       throw new Error("Missing required fields: author, title, text");
     }
-    await addNewReview(parsedBody);
+    
+    const reviewWithDate = { ...parsedBody, timeStamp: new Date().toLocaleString() }
+    await addNewReview(reviewWithDate);
     sendResponse(res, 201, "application/json", JSON.stringify(parsedBody));
   } catch (error) {
     sendResponse(
